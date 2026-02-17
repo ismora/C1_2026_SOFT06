@@ -1,0 +1,87 @@
+<!-- LIBRO COMPLETO = PÁGINA WEB -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>HTML como un libro estructurado</title>
+</head>
+
+<body>  <!-- =========== PARTES VISIBLES DEL LIBRO =========== -->
+   
+    <!-- CUBIERTA Y TAPA = <header> -->
+    <header>
+        <h1>Analogía para comprender la maquetación HTML</h1>
+        <p>HTML como un libro estructurado</p>
+        <img src="imgs/test.png" alt="">
+        <p>&lt;header&gt; = Portada del libro</p>
+    </header>
+
+    <!-- ÍNDICE = <nav> -->
+    <nav>
+        <h2>Tabla de Contenidos</h2>
+        <ol>
+            <li><a href="#cap1">Capítulo 1: Fundamentos HTML</a></li>
+            <li><a href="index.html">Capítulo 2: CSS Básico</a></li>
+            <!-- ... más enlaces de navegación -->
+        </ol>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL DEL LIBRO = <main> -->
+    <main>
+
+        <!-- CAPÍTULO COMPLETO = <article> (autocontenido) -->
+        <article id="cap1">
+            <header>
+                <h2>Capítulo 1: Fundamentos HTML</h2>
+                <p>Por: Dra. Elena Martínez</p>
+            </header>
+
+            <!-- SECCIÓN DENTRO DEL CAPÍTULO = <section> -->
+            <section>
+                <h3>1.1 Historia de HTML</h3>
+                <p>HTML nació en el CERN en 1991...</p>
+
+                <!-- NOTA AL MARGEN = <aside> (dentro de una sección) -->
+                <aside>
+                    <h4>¿Sabía usted?</h4>
+                    <p>Tim Berners-Lee creó HTML mientras trabajaba en el CERN...</p>
+                </aside>
+            </section>
+
+            <!-- OTRA SECCIÓN -->
+            <section>
+                <h3>1.2 Etiquetas Básicas</h3>
+                <p>Las etiquetas forman la estructura...</p>
+            </section>
+        </article>
+
+        <!-- SEGUNDO CAPÍTULO (otro artículo) -->
+        <article id="cap2">
+            <h2>Capítulo 2: CSS Básico</h2>
+            <!-- ... contenido ... -->
+        </article>
+
+    </main>
+
+    <!-- APÉNDICES / GLOSARIO = <aside> (exterior) -->
+    <aside>
+        <h2>Apéndices</h2>
+        <section>
+            <h3>Glosario de Términos</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>Lenguaje de Marcado de Hipertexto</dd>
+            </dl>
+        </section>
+    </aside>
+
+    <!-- CONTRAPORTADA = <footer> -->
+    <footer>
+        <p>© 2023 Editorial WebDev. Todos los derechos reservados.</p>
+        <address>Av. Digital 123, Ciudad Web</address>
+        <p>ISBN: 978-1-234567-89-0</p>
+    </footer>
+
+</body>
+
+</html>
