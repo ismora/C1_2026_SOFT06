@@ -1,5 +1,10 @@
 let btnCalcularIMC = document.getElementById("btnCalcularIMC");
 
+let txtPeso = document.getElementById("txtPeso"); 
+let txtEstatura = document.getElementById("txtEstatura");
+
+let parrafoResultado = document.querySelector("#sctResultadoIMC p");
+
 // Función: Bloque de código reutilizable que realiza una tarea específica.
 
 /* Crear una función para calcular el IMC con la siguiente fórmula:
@@ -16,16 +21,15 @@ function calcularIMC(peso, estatura){
     console.log("El IMC es: " + imc.toFixed(2)); // Definir la cantidad de decimales con toFixed()
 }
 
-calcularIMC(80, 1.7);
-calcularIMC(60, 1.8);
 
 // Función con datos de salida (valor de retorno)
 function calcularIMCRetorno(){
-    console.log("Evento de clic");
-    /*
+    let peso = txtPeso.value;
+    let estatura = txtEstatura.value;
+    
     let imc = peso / Math.pow(estatura, 2);
-    return imc.toFixed(2);
-    */
+    parrafoResultado.innerText = imc.toFixed(2);
+
 }
 
 
