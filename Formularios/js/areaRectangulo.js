@@ -1,3 +1,10 @@
+let btnCalcularArea = document.getElementById("btnCalcularArea");
+
+let txtBase = document.getElementById("txtBase"); 
+let txtAltura = document.getElementById("txtAltura");
+
+let parrafoResultadoRectangulo = document.querySelector("#sctResultado p");
+
 /*
 == : comparar el valor 
 Python: 
@@ -25,20 +32,24 @@ Datos de prueba:    base    altura      área
                     ""      2           Error
                     0       2           Error
 */
-function areaRectangulo(base, altura){
+function areaRectangulo(){
+    let base = txtBase.value;
+    let altura = txtAltura.value;
+    let resultado;
+    
+    
     // Condicional para asignar altura = base si solo hay un dato de entrada
-    if (altura === undefined){ 
+    if (altura === ""){ 
         altura = base; 
     }
 
-    if (typeof base !== "number" || typeof altura !== "number" || base <= 0 || altura <= 0){
-        return "Error: Los datos deben ser números positivos";
+    if (base <= 0 || altura <= 0){
+        resultado = "Error: Los datos deben ser números positivos";
     }
-
-    return base * altura;
+    else{
+        resultado = base * altura;
+    }
+    parrafoResultadoRectangulo.innerText =  resultado;
 }
 
-console.log("El área del rectángulo es: " + areaRectangulo(5, 3));
-console.log("El área del rectángulo es: " + areaRectangulo(5));
-console.log(areaRectangulo("5"));
-console.log(areaRectangulo(0, 2));
+btnCalcularArea.addEventListener("click", areaRectangulo);

@@ -1,3 +1,10 @@
+let btnConvertirTemperatura = document.getElementById("btnConvertirTemperatura");
+
+let txtTemperatura = document.getElementById("txtTemperatura"); 
+let txtEscala = document.getElementById("txtEscala");
+
+let parrafoResultado = document.querySelector("#sctResultado p");
+
 // || : or
 // && : and
 
@@ -18,27 +25,26 @@ Datos de prueba:    Temperatura     Escala a convertir      Resultado esperado
                     0               a                       Error
 */
 
-function convertirTemperatura(temperatura, escala){
-    if (typeof temperatura !== "number"){
-        return "Error: La temperatura debe ser un número";
-    }
-    if (escala !== "C" && escala !== "F"){
-        return "Error: Unidad no válida (utilice C o F)";
-    }
+function convertirTemperatura(){
+    let temperatura = txtTemperatura.value;
+    let escala = txtEscala.value;
 
-    // Conversión
-    let resultadoConversion;
+    let resultado;
+
+    // No se debe validar porque el input solo deja ingresar datos de tipo number
+
     if (escala === "C"){ //Fahrenheit a Celsius
-        resultadoConversion = (temperatura - 32) * 5 / 9;
+        resultado = (temperatura - 32) * 5 / 9 + "° C";
     } 
-    else{ // Celsius a Fahrenheit 
-        resultadoConversion = (temperatura * 9 / 5) + 32;
+    else if (escala === "F"){ // Celsius a Fahrenheit 
+        resultado = (temperatura * 9 / 5) + 32 + "° F";
+    } 
+    else{ // Otra escala
+       resultado =  "Error: Unidad no válida (utilice C o F)";
     }
-    return resultadoConversion;
+    parrafoResultado.innerText = resultado;
+    
 }
 //Opcional: escala.toLowerCase() o escala.toUpperCase()
 
-console.log(convertirTemperatura(25, "F")); // 77
-console.log(convertirTemperatura(32, "C")); // 0
-console.log(convertirTemperatura("32", "C")); // Error
-console.log(convertirTemperatura(32, "a")); // Error
+btnConvertirTemperatura.addEventListener("click", convertirTemperatura);
