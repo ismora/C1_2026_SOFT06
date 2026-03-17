@@ -1,6 +1,77 @@
+:root{
+    --azul: #164a98;
+    --rojo: #d2232a;
+    --gris: #d2d2d2;
+    --borde-radio: 5px;
+    --tamanio-fuente: 16px;
+    --fuente: "Century Gothic", CenturyGothic, AppleGothic, sans-serif; 
+}
 
-
+body{
+    font-family: var(--fuente);
+}
 
 .input-error{
-    border: 2px solid rgb(231, 38, 38);
+    border: 2px solid var(--rojo);
+}
+
+.contenedor-input-etiqueta{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label{
+    font-size: var(--tamanio-fuente);
+    color: var(--azul);
+}
+
+.contenedor-formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+
+#sctResultadoIMC {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: color-mix(in srgb, var(--gris) 30%, transparent); /*Versión semitransparente de --gris al 30%. */
+    border-left: 4px solid var(--azul);
+    border-radius: var(--borde-radio);
+    text-align: center;
+}
+
+.icono-etiqueta{
+    background-color: var(--azul);   
+    color: var(--gris);    
+    border: none; 
+    padding: 5px;              
+    display: inline-flex; /* Centrar el ícono */
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.contenedor-horizontal{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+#txtBase{
+    width: 400px;
+}
+
+/* Quitar las flechas de incremento/decremento en navegadores que las muestran */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 }

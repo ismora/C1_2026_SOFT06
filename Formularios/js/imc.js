@@ -1,6 +1,6 @@
 let btnCalcularIMC = document.getElementById("btnCalcularIMC");
 
-let txtPeso = document.getElementById("txtPeso"); 
+let txtPeso = document.getElementById("txtPeso");
 let txtEstatura = document.getElementById("txtEstatura");
 
 let parrafoResultado = document.querySelector("#sctResultadoIMC p");
@@ -15,7 +15,7 @@ Datos de prueba en kg       m       IMC
                     60      1.8     18.5
 */
 
-function calcularIMC(peso, estatura){
+function calcularIMC(peso, estatura) {
     //               (estatura*estatura)
     let imc = peso / Math.pow(estatura, 2);
     console.log("El IMC es: " + imc.toFixed(2)); // Definir la cantidad de decimales con toFixed()
@@ -23,35 +23,39 @@ function calcularIMC(peso, estatura){
 
 
 // Función con datos de salida (valor de retorno)
-function calcularIMCRetorno(){
+function calcularIMCRetorno() {
     let peso = txtPeso.value;
     let estatura = txtEstatura.value;
-    
+
     let imc = peso / Math.pow(estatura, 2);
-    
-    if (validarCamposVacios() === false){
+
+    if (validarCamposVacios() === false) {
         parrafoResultado.innerText = imc.toFixed(2);
     }
-    else{
-        parrafoResultado.innerText = "No se puede calcular el IMC: Por favor revise los campos resaltados";
+    else {
+        Swal.fire({
+            title: "No se puede calcular el IMC",
+            text: "Por favor revise los campos resaltados",
+            icon: "warning",
+            confirmButtonText: "Aceptar"
+        });
     }
-
 }
 
-function validarCamposVacios(){
+function validarCamposVacios() {
     let error = false; // Por defecto que no existen errores 
-    if (txtPeso.value === ""){
+    if (txtPeso.value === "") {
         txtPeso.classList.add("input-error");
         error = true;
     }
-    else{
+    else {
         txtPeso.classList.remove("input-error")
     }
-    if (txtEstatura.value === ""){
+    if (txtEstatura.value === "") {
         txtEstatura.classList.add("input-error");
         error = true;
     }
-    else{
+    else {
         txtEstatura.classList.remove("input-error")
     }
     return error;
